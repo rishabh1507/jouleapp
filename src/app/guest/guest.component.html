@@ -1,0 +1,26 @@
+<!-- <app-allpost></app-allpost> -->
+<br>
+<div class="search-hero align-items-center">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+        placeholder="&#61442;  Start searching through our docs">
+</div>
+
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mb-4" *ngFor="let k of alluser | filter: searchText ">
+            <div class="card border-primary">
+                <div class="card-header">
+                    {{k.title}}<a routerLinkActive="active" routerLink='/fullpost'
+                        class="float-right d-inline-flex share nav-link"><i
+                            class="fas fa-share-alt text-primary"></i></a>
+                </div>
+                <p class="card-body">Category :{{k.category}}</p>
+                <p class="card-body">Content :{{k.body1}}</p>
+                <!-- <a class="float-right nav-link" routerLinkActive="active" routerLink='/fullpost'>Read more <i
+            class="fas fa-angle-double-right"></i></a> -->
+            </div>
+        </div>
+    </div>
+</div>

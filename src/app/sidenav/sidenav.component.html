@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <div id="mySidenav" class="sidenav">
+    
+    <a>{{username}}</a>
+    <br>
+    <a class="nav-link" routerLinkActive="active" routerLink='/user'>Home</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a class="nav-link" routerLinkActive="active" routerLink='/makepost'>Make  Docs</a>
+    <a class="nav-link" routerLinkActive="active" routerLink='/allpost'>List All Docs</a>
+    <a class="nav-link" routerLinkActive="active" routerLink='/yourpost'>Your Docs</a>
+    <!-- <a class="nav-link" routerLinkActive="active" routerLink='/guest'>guest</a> -->
+
+    
+  </div>
+
+  <!-- <h2>Animated Sidenav Example</h2>
+  <p>Click on the element below to open the side navigation menu.</p> -->
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+  <!-- <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script> -->
+  <ul class="nav navbar-nav nav-pills ml-auto">
+    <li class="nav-item active">
+      <a class="nav-link active" (click)="logout()">LogOut</a>
+    </li>
+  </ul>
+</nav>

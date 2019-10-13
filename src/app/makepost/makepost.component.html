@@ -1,0 +1,31 @@
+<app-sidenav></app-sidenav>
+<div class="container">
+  <h1>Enter Product Documentation</h1>
+  <form #pt="ngForm">
+    <div>
+      <input style="display: none" name="loginId" ngModel={{loginId}}>
+      <input type="text" class="form-control" ngModel placeholder="title" name="title">
+    </div>
+    <br>
+    
+      <div>
+        <input type="text" class="form-control" ngModel placeholder="category" name="category">
+      </div>
+      <br>
+
+    <div>
+      <textarea name="body1" class="form-control" ngModel placeholder="Enter the material" cols="30" rows="10"></textarea>
+    </div>
+    <br>
+ 
+
+    <br>
+    <!-- <input type="text" [value]="value" class="form-control"> -->
+
+    <!-- <h3 [hidden]=true formControlName="loginId1" class="form-control" name="">{{loginId}}</h3> -->
+    <!-- <div formControlName="loginId" class="form-control">
+      <h3>{{loginId}}</h3>
+    </div> -->
+    <input type="button" (click)="makepost(pt)" class="btn btn-primary btn-block" value="Submit !">
+
+  </form>

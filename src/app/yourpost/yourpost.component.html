@@ -1,0 +1,105 @@
+<app-sidenav></app-sidenav>
+
+<br>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-4" *ngFor="let k of data">
+            <div class="card border-success">
+                <div class="card-body">
+                    <h5 class="card-title border-bottom pb-3"> {{k.title}} </h5>
+                    <p class="card-text">{{k.body1}}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-lg-6 float-left">
+                            <button (click)="todelete(k._id)" class="btn btn-danger" data-target="#modelId"
+                                data-toggle="modal">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                            <button (click)="toupdate(k)" class="btn btn-primary ml-1" data-target="#upmodel"
+                                data-toggle="modal">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- delete modal -->
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Record</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <i class="fa fa-warning text-danger"></i>
+                    Are you Sure you want to delete
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+                    <button data-dismiss="modal" type="button" class="btn btn-primary" (click)="deletepost()">
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Update Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="upmodel" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Record</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form #udd="ngForm">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Title</label>
+                                    <input style="display:none" name="_id" ngModel={{user._id}} />
+                                    <input class="form-control" name="title" ngModel={{user.title}} />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Body</label>
+                                    <input class="form-control" name="body1" ngModel={{user.body1}} />
+                                </div>
+                            </div>
+
+                            <i fa fa-warning text-danger>
+                                Are you sure you want to update record ?
+                            </i>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                Close
+                            </button>
+                            <button data-dismiss="modal" type="button" class="btn btn-primary"
+                                (click)="updatepost(udd)">
+                                Update
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
